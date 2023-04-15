@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserInform"
+    android:background="@color/sunset"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:srcCompat="@tools:sample/avatars"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:id="@+id/userImage"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/userPhoneInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"/>
+
+        <EditText
+            android:id="@+id/userNameInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:hint="Họ và tên"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/userAgeInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:hint="Tuổi"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"
+            />
+        <EditText
+            android:id="@+id/userSexInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:hint="Giới tính"
+            android:inputType="text"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"
+            />
+
+        <EditText
+            android:id="@+id/userEmailInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/userPasswordInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/userPasswordConfirmInf"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:gravity="left"
+            android:hint="Nhập lại mật khẩu"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:layout_marginBottom="10dp"
+            android:textSize="20sp"
+            android:background="@drawable/input_bg"
+            android:paddingLeft="20dp"/>
+
+
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnupdateInf"
+        android:text="Cập nhập thông tin"
+        android:background="@color/orange"
+        android:padding="15dp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
+</LinearLayout>
