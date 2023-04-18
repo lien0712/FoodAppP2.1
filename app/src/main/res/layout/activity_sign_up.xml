@@ -1,121 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
     android:backgroundTint="#68171616"
-    android:backgroundTintMode="src_over">
+    android:backgroundTintMode="src_over"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="8dp"
-        android:orientation="vertical">
+        app:cardCornerRadius="30dp"
+        android:layout_margin="30dp"
+        app:cardElevation="20dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            >
 
-        <EditText
-            android:id="@+id/edtPhone"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:hint="Phone number"
-            android:inputType="phone"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Phone number"
+                android:inputType="phone"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp"
+                android:background="@drawable/input_bg"
+                android:padding="10dp"
+                />
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Full Name"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp"
+                android:background="@drawable/input_bg"
+                android:padding="10dp"
+                />
 
-        <EditText
-            android:id="@+id/edtName"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:hint="Full Name"
-            android:inputType="text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"
-            />
-        <EditText
-            android:id="@+id/edtAge"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:hint="Age"
-            android:inputType="number"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"
-            />
-        <EditText
-            android:id="@+id/edtGender"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:hint="Gender"
-            android:inputType="text"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"
-            />
+            <EditText
+                android:id="@+id/edtAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input_bg"
+                android:hint="Age"
+                android:inputType="number"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="20dp"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
-        <EditText
-            android:id="@+id/edtPassword"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="20dp"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
-        <EditText
-            android:id="@+id/edtPasswordConfirm"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:hint="Confirm password"
-            android:inputType="textPassword"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="20dp"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
+            <EditText
+                android:id="@+id/edtGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Gender"
+                android:inputType="text"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp"
+                android:background="@drawable/input_bg"
+                android:padding="10dp"
+                />
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_marginBottom="10dp"
+                android:textSize="14sp"
+                android:background="@drawable/input_bg"
+                android:padding="10dp"/>
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:layout_marginBottom="10dp"
+                android:textSize="14sp"
+                android:background="@drawable/input_bg"
+                android:padding="10dp"/>
+
+            <EditText
+                android:id="@+id/edtPasswordConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input_bg"
+                android:gravity="left"
+                android:hint="Confirm password"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
 
 
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -124,13 +130,14 @@
         android:orientation="vertical"
         >
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:text="Sign up"
             android:id="@+id/btnSignUp"
             android:textColor="@color/white"
             android:layout_margin="8dp"
             android:background="@color/orange"
+            android:layout_gravity="center"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -144,4 +151,4 @@
 
 
 
-</RelativeLayout>
+</LinearLayout>

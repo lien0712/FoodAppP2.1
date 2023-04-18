@@ -25,7 +25,7 @@ public class SignIn extends AppCompatActivity {
 
     Button btnSignIn;
     EditText edtPhone, edtPassword;
-
+    TextView signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,14 @@ public class SignIn extends AppCompatActivity {
         btnSignIn= (Button) findViewById(R.id.btnSignIn);
         edtPassword= (EditText) findViewById(R.id.edtPassword);
         edtPhone= (EditText) findViewById(R.id.edtPhone);
+        signup= findViewById(R.id.signupfromin);
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(SignIn.this, SignUp.class);
+                startActivity(intent);
+            }
+        });
 
         //Init Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
