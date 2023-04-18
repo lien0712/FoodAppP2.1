@@ -37,8 +37,6 @@ public class Ad_food_detail extends AppCompatActivity {
         database= FirebaseDatabase.getInstance();
         food=database.getReference("Food");
 
-
-
         food_description= (TextView) findViewById(R.id.ad_food_description);
         food_name=  (TextView) findViewById(R.id.ad_food_name);
         food_price=  (TextView) findViewById(R.id.ad_food_price);

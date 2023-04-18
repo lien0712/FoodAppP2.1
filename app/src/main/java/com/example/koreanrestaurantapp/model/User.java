@@ -14,13 +14,6 @@ public class User {
         this.age = age;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
 
     public String getEmail() {
         return email;
@@ -32,7 +25,16 @@ public class User {
 
     private String active;
     private String age;
-    private String sex;
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     private String email;
     public String getPhone() {
         return phone;
@@ -64,10 +66,13 @@ public class User {
         this.password = password;
     }
 
-    public User(String name, String password, String active) {
+    public User(String name, String password, String active,String email, String gender,String age) {
         this.name = name;
         this.password = password;
         this.active = active;
+        this.email=email;
+        this.gender=gender;
+        this.age=age;
     }
 
     private User(String name, String password, String phone, String active) {

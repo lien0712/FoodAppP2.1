@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UserInform extends AppCompatActivity {
 
     ImageView avata;
-    EditText userPhoneInf,userNameInf,userAgeInf,userSexInf,userEmailInf,userPasswordInf,userPasswordConfirmInf;
+    EditText userPhoneInf,userNameInf,userAgeInf,userGenderInf,userEmailInf,userPasswordInf,userPasswordConfirmInf;
     Button btnUpdateInf;
 
     FirebaseDatabase database;
@@ -37,7 +37,7 @@ public class UserInform extends AppCompatActivity {
         userPhoneInf= findViewById(R.id.userPhoneInf);
         userNameInf= findViewById(R.id.userNameInf);
         userAgeInf= findViewById(R.id.userAgeInf);
-        userSexInf= findViewById(R.id.userSexInf);
+        userGenderInf= findViewById(R.id.userGenderInf);
         userEmailInf= findViewById(R.id.userEmailInf);
         userPasswordInf= findViewById(R.id.userPasswordInf);
         userPasswordConfirmInf= findViewById(R.id.userPasswordConfirmInf);
@@ -45,7 +45,7 @@ public class UserInform extends AppCompatActivity {
         userPhoneInf.setText(current.getPhone());
         userNameInf.setText(current.getName());
         userAgeInf.setText(current.getAge());
-        userSexInf.setText(Common.currentUser.getSex());
+        userGenderInf.setText(Common.currentUser.getGender());
         userEmailInf.setText(current.getEmail());
         userPasswordInf.setText(current.getPassword());
         userPasswordConfirmInf.setText(current.getPassword());
@@ -65,7 +65,7 @@ public class UserInform extends AppCompatActivity {
     private void updateInfo(User current) {
         current.setName(userNameInf.getText().toString());
         current.setAge(userAgeInf.getText().toString());
-        current.setSex(userSexInf.getText().toString());
+        current.setGender(userGenderInf.getText().toString());
         current.setEmail(userEmailInf.getText().toString());
         current.setPassword(userPasswordInf.getText().toString());
         //current.setName(userNameInf.getText().toString());

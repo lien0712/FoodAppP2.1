@@ -80,7 +80,8 @@ public class FoodDetail extends AppCompatActivity {
                         currentFood.getDiscount()
                 ));
                 Toast.makeText(FoodDetail.this,"Added to cast", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(FoodDetail.this,FoodList.class));
+                finish();
+                finish();
             }
         });
 

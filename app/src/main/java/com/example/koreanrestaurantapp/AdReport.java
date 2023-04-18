@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.koreanrestaurantapp.Common.Common;
+import com.example.koreanrestaurantapp.Interface.ItemClickListener;
 import com.example.koreanrestaurantapp.ViewHolder.OrderViewHolder;
 import com.example.koreanrestaurantapp.model.Request;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -83,6 +85,15 @@ public class AdReport extends AppCompatActivity {
                 request.getAddress();
                 orderViewHolder.txtOrderAddress.setText(request.getAddress());
                 orderViewHolder.txtOrderPhone.setText(request.getPhone());
+
+                orderViewHolder.setItemClickListener(new ItemClickListener() {
+                    @Override
+                    public void onClick(View view, int position, boolean isLongClick) {
+                        Intent detailorderreport= new Intent(AdReport.this,Ad_detail_order_report.class);
+                        detailorderreport.putExtra("FoodOrderId", adapter.getRef(position).getKey());
+                        startActivity(detailorderreport);
+                    }
+                });
             }
         };
         recyclerView.setAdapter(adapter);

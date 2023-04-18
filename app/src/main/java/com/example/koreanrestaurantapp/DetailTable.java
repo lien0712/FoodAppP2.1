@@ -65,7 +65,7 @@ public class DetailTable extends AppCompatActivity {
     }
 
 
-    private void loadListFood() {
+    private void loadListFood() {//not ok
         cart = new Database(this).getCarts();
         adapter= new CartAdapter(cart, this);
         recyclerView.setAdapter(adapter);

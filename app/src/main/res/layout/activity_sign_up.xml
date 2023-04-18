@@ -20,7 +20,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:hint="Số điện thoại"
+            android:hint="Phone number"
             android:inputType="phone"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -34,7 +34,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:hint="Họ và tên"
+            android:hint="Full Name"
             android:inputType="text"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -48,7 +48,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:hint="Tuổi"
+            android:hint="Age"
             android:inputType="number"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -57,12 +57,12 @@
             android:paddingLeft="20dp"
             />
         <EditText
-            android:id="@+id/edtGioitinh"
+            android:id="@+id/edtGender"
             android:layout_width="300dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
-            android:hint="Giới tính"
+            android:hint="Gender"
             android:inputType="text"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -91,7 +91,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:gravity="left"
-            android:hint="Mật khẩu"
+            android:hint="Password"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -105,7 +105,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:gravity="left"
-            android:hint="Nhập lại mật khẩu"
+            android:hint="Confirm password"
             android:inputType="textPassword"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -136,9 +136,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:text="Đã có tài khoản? Đăng nhập"
+            android:text="Have already an acount? Sign in."
             android:textSize="15dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:id="@+id/signInFromUp"/>
     </LinearLayout>
 
 
