@@ -20,10 +20,12 @@
             android:text=""
             />
         <ImageView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:id="@+id/imagecategory"
             tools:srcCompat="@tools:sample/avatars"
+            android:background="@drawable/input_bg"
+            android:autofillHints="name"
             />
 
         <LinearLayout

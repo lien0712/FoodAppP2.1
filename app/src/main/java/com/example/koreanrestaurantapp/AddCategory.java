@@ -67,7 +67,6 @@ public class AddCategory extends AppCompatActivity {
 //                newCategory = new Category(edtNameCategory.getText().toString(),saveUri.toString());
 //                category.push().setValue(newCategory);
 //                Toast.makeText(AddCategory.this, "New category", Toast.LENGTH_SHORT).show();
-
             }
         });
 

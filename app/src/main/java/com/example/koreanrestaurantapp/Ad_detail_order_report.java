@@ -5,17 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
-import com.example.koreanrestaurantapp.Interface.ItemClickListener;
-import com.example.koreanrestaurantapp.ViewHolder.FoodViewHolder;
-import com.example.koreanrestaurantapp.ViewHolder.FoodViewHolderAd;
-import com.example.koreanrestaurantapp.ViewHolder.OrderDetailVH;
-import com.example.koreanrestaurantapp.ViewHolder.OrderViewHolder;
-import com.example.koreanrestaurantapp.model.Food;
+import com.example.koreanrestaurantapp.ViewHolder.AdOrderDetailVH;
 import com.example.koreanrestaurantapp.model.Order;
 import com.example.koreanrestaurantapp.model.Request;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -23,9 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 public class Ad_detail_order_report extends AppCompatActivity {
 
@@ -38,7 +29,7 @@ public class Ad_detail_order_report extends AppCompatActivity {
     DatabaseReference detailOrder;
     String foodOrderId="";
     Request currentOrder;
-    FirebaseRecyclerAdapter<Order, OrderDetailVH> adapter;
+    FirebaseRecyclerAdapter<Order, AdOrderDetailVH> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,18 +73,18 @@ public class Ad_detail_order_report extends AppCompatActivity {
                 status.setText(String.format("Status: %s",currentOrder.getStatus()));
                 total.setText(String.format("Total: %s",currentOrder.getTotal()));
 
-                adapter = new FirebaseRecyclerAdapter<Order, OrderDetailVH>(
+                adapter = new FirebaseRecyclerAdapter<Order, AdOrderDetailVH>(
                         Order.class,
                         R.layout.ad_detail_food_order_report,
-                        OrderDetailVH.class,
+                        AdOrderDetailVH.class,
                         detailOrder.child(foodId+"/food") ){
 
                     @Override
-                    protected void populateViewHolder(OrderDetailVH orderDetailVH, Order order, int i) {
-                        orderDetailVH.nameFood.setText(String.format("Name: %s",order.getProductName()));
-                        orderDetailVH.priceFood.setText(String.format("Price: %s",order.getPrice()));
-                        orderDetailVH.quantityFood.setText(String.format("Quantity: %s",order.getQuantity()));
-                        orderDetailVH.discountFood.setText(String.format("Discount: %s",order.getDiscount()));
+                    protected void populateViewHolder(AdOrderDetailVH adOrderDetailVH, Order order, int i) {
+                        adOrderDetailVH.nameFood.setText(String.format("Name: %s",order.getProductName()));
+                        adOrderDetailVH.priceFood.setText(String.format("Price: %s",order.getPrice()));
+                        adOrderDetailVH.quantityFood.setText(String.format("Quantity: %s",order.getQuantity()));
+                        adOrderDetailVH.discountFood.setText(String.format("Discount: %s",order.getDiscount()));
                     }
                 };
 
@@ -108,12 +99,13 @@ public class Ad_detail_order_report extends AppCompatActivity {
     }
 
     private String convertCodeToStatus(String status) {
-        if (status.equals("0"))
+        if (status.equals("2"))
             return "Đã giao";
         else if (status.equals("1"))
             return "Đang giao";
-        else
+        else if(status.equals("0"))
             return "Đang chuẩn bị ";
 
+        return status;
     }
 }

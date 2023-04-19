@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Admin Inform"
+                android:textSize="20sp"
                 android:id="@+id/adInform"
                 />
             <TextView
@@ -38,12 +39,14 @@
                 android:layout_height="wrap_content"
                 android:text="User Account"
                 android:id="@+id/adUserAccount"
+                android:textSize="20sp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Log out"
                 android:id="@+id/logoutAd"
+                android:textSize="20sp"
                 />
 
         </LinearLayout>

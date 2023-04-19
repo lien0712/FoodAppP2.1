@@ -3,14 +3,21 @@ package com.example.koreanrestaurantapp.model;
 public class Order {
 
     private String ProductId;
-
-    public Order() {
-    }
-
     private String ProductName;
     private String Quantity;
     private String Price;
     private String Discount;
+    public Order() {
+    }
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
+    private String Image;
 
     public Order(String productId, String productName, String quantity, String price, String discount) {
         ProductId = productId;

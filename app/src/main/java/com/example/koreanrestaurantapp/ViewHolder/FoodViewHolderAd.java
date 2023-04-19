@@ -15,14 +15,17 @@ import com.example.koreanrestaurantapp.R;
 
 public class FoodViewHolderAd extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
 
-    public TextView food_name;
+    public TextView food_name,food_price;
     public ImageView food_image;
+
     private ItemClickListener itemClickListener;
     public FoodViewHolderAd(@NonNull View itemView) {
         super(itemView);
 
         food_name= (TextView) itemView.findViewById(R.id.food_name);
+        food_price= itemView.findViewById(R.id.food_price);
         food_image=(ImageView) itemView.findViewById(R.id.food_image);
+
         itemView.setOnCreateContextMenuListener(this);
         itemView.setOnClickListener((View.OnClickListener) this);
     }

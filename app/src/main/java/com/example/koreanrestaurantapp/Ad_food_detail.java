@@ -42,9 +42,6 @@ public class Ad_food_detail extends AppCompatActivity {
         food_price=  (TextView) findViewById(R.id.ad_food_price);
         food_image=  (ImageView) findViewById(R.id.ad_food_image);
 
-        collapsingToolbarLayout= (CollapsingToolbarLayout) findViewById(R.id.collapseActionView);
-        collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
-        collapsingToolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppbar);
 
         if (getIntent() !=null)
             foodId = getIntent().getStringExtra("FoodId");

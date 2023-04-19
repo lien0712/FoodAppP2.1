@@ -33,18 +33,21 @@
             android:layout_height="wrap_content"
             android:text="Admin Inform"
             android:id="@+id/adInformaccount"
+            android:textSize="20sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="User Account"
             android:id="@+id/adUserAccountaccount"
+            android:textSize="20sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Log out"
             android:id="@+id/logoutAdaccount"
+            android:textSize="20sp"
             />
 
     </LinearLayout>

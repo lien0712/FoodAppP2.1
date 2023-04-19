@@ -9,16 +9,16 @@
     <item
         android:id="@+id/navbt_table"
         android:icon="@drawable/ic_table_restaurant_24"
-        android:title="Bàn ăn" />
+        android:title="Table" />
 
     <item
         android:id="@+id/navbt_report"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="Báo cáo " />
+        android:title="Orders " />
 
     <item
         android:id="@+id/navbt_setting"
         android:icon="@drawable/ic_settings_24"
-        android:title="Caì đặt " />
+        android:title="Setting " />
 
 </menu>

@@ -108,41 +108,44 @@ public class MenuAdmin extends AppCompatActivity {
         alertDialog.setTitle("Update category");
 
         LayoutInflater inflater= this.getLayoutInflater();
-        View update_food= inflater.inflate(R.layout.add_new_food_ad,null);
-        edtNameFood=update_food.findViewById(R.id.edtNameFood);
-        edtDescriptionFood=update_food.findViewById(R.id.edtDescriptionFood);
-        edtPriceFood=update_food.findViewById(R.id.edtPriceFood);
-        edtDiscountFood=update_food.findViewById(R.id.edtDiscountFood);
-        btnSelect= update_food.findViewById(R.id.selectbtnFood);
-        btnUpload= update_food.findViewById(R.id.uploadbtnFood);
-        imageFood= update_food.findViewById(R.id.imageFood);
+        View update_food= inflater.inflate(R.layout.ad_update_food,null);
+        edtNameFood=update_food.findViewById(R.id.edtNameFoodUpdate);
+        edtDescriptionFood=update_food.findViewById(R.id.edtDescriptionFoodUpdate);
+        edtPriceFood=update_food.findViewById(R.id.edtPriceFoodUpdate);
+        edtDiscountFood=update_food.findViewById(R.id.edtDiscountFoodUpdate);
+//        btnSelect= update_food.findViewById(R.id.selectbtnFood);
+//        btnUpload= update_food.findViewById(R.id.uploadbtnFood);
+        imageFood= update_food.findViewById(R.id.imageFoodUpdate);
+        Picasso.with(getBaseContext()).load(item.getImage()).into(imageFood);
 
         edtNameFood.setText(item.getName());
         edtDescriptionFood.setText(item.getDescription());
         edtPriceFood.setText(item.getPrice());
         edtDiscountFood.setText(item.getDiscount());
-        btnSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectImage();
-            }
-        });
-        btnUpload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                changeImage();
-            }
-        });
+//        btnSelect.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                selectImage();
+//            }
+//        });
+//        btnUpload.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                changeImage(item);
+//            }
+//        });
 
         alertDialog.setView(update_food);
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
+                //Update inform
                 item.setName(edtNameFood.getText().toString());
                 item.setDescription(edtDescriptionFood.getText().toString());
                 item.setPrice(edtPriceFood.getText().toString());
                 item.setDiscount(edtDiscountFood.getText().toString());
+                item.setImage(String.valueOf(saveUri));
                 foodList.child(key).setValue(item);
             }
         });
@@ -156,6 +159,48 @@ public class MenuAdmin extends AppCompatActivity {
 
 
     }
+
+    private void changeImage(Food item) {
+            ProgressDialog dialog= new ProgressDialog(this);
+            dialog.setMessage("Uploading");
+            dialog.show();
+            String imageName= UUID.randomUUID().toString();
+            StorageReference imageFolder= FirebaseStorage.getInstance().getReference("images/" + imageName);
+            imageFolder.putFile(saveUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    dialog.dismiss();
+                    Toast.makeText( MenuAdmin.this,"Uploaded", Toast.LENGTH_SHORT).show();
+                    imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            imageFood.setImageURI(null);
+                            imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    newFood.setImage(uri.toString());
+                                                                    }
+                            });
+                        }
+                    });
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    dialog.dismiss();
+                    Toast.makeText(MenuAdmin.this, "Failed to upload", Toast.LENGTH_SHORT).show();
+                }
+            }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot snapshot) {
+                    double progress= (100.0* snapshot.getBytesTransferred()/snapshot.getTotalByteCount());
+                    dialog.setMessage("Uploaded"+progress+"%");
+                }
+            });
+
+
+    }
+
     private void showAddFoodDialog() {
         AlertDialog.Builder alertDialog= new AlertDialog.Builder(MenuAdmin.this);
         alertDialog.setTitle("Update category");
@@ -180,7 +225,7 @@ public class MenuAdmin extends AppCompatActivity {
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeImage();
+                chooseImage();
             }
         });
 
@@ -206,14 +251,13 @@ public class MenuAdmin extends AppCompatActivity {
 
     }
 
-    private void changeImage() {
+    private void chooseImage() {
         if (saveUri != null){
             ProgressDialog dialog= new ProgressDialog(this);
             dialog.setMessage("Uploading");
             dialog.show();
-
             String imageName= UUID.randomUUID().toString();
-            StorageReference imageFolder= storageReference.child("images/"+imageName);
+            StorageReference imageFolder= FirebaseStorage.getInstance().getReference("images/" + imageName);
             imageFolder.putFile(saveUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -222,7 +266,7 @@ public class MenuAdmin extends AppCompatActivity {
                     imageFolder.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
-                            newFood = new Food();
+                            newFood= new Food();
                             newFood.setName(edtNameFood.getText().toString());
                             newFood.setDescription(edtDescriptionFood.getText().toString());
                             newFood.setPrice(edtPriceFood.getText().toString());
@@ -273,10 +317,10 @@ public class MenuAdmin extends AppCompatActivity {
                 FoodViewHolderAd.class,
                 foodList.orderByChild("menuId").equalTo(categoryId)) {
 
-
             @Override
             protected void populateViewHolder(FoodViewHolderAd foodViewHolderAd, Food food, int i) {
                 foodViewHolderAd.food_name.setText(food.getName());
+                foodViewHolderAd.food_price.setText(food.getPrice());
                 Picasso.with(getBaseContext()).load(food.getImage()).into(foodViewHolderAd.food_image);
 
                 foodViewHolderAd.setItemOnClickListener(new ItemClickListener() {

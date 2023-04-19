@@ -61,12 +61,13 @@ public class OrderStatus extends AppCompatActivity {
     }
 
     private String convertCodeToStatus(String status) {
-        if (status.equals("0"))
+        if (status.equals("2"))
             return "Đã giao";
         else if (status.equals("1"))
             return "Đang giao";
-        else
+        else if (status.equals("0"))
             return "Đang chuẩn bị ";
 
+        return status;
     }
 }

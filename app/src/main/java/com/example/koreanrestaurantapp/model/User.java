@@ -5,6 +5,20 @@ public class User {
     private String name;
     private String password;
     private String phone;
+    private String active;
+    private String age;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    private String gender;
+    private String email;
+    private String image;
 
     public String getAge() {
         return age;
@@ -23,9 +37,7 @@ public class User {
         this.email = email;
     }
 
-    private String active;
-    private String age;
-    private String gender;
+
 
     public String getGender() {
         return gender;
@@ -35,7 +47,7 @@ public class User {
         this.gender = gender;
     }
 
-    private String email;
+
     public String getPhone() {
         return phone;
     }

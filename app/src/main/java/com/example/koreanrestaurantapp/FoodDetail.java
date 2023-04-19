@@ -33,7 +33,7 @@ public class FoodDetail extends AppCompatActivity {
 
     String foodId="";
     FirebaseDatabase database;
-    DatabaseReference food;
+    DatabaseReference food, cart;
 
     Food currentFood;
 
@@ -45,6 +45,7 @@ public class FoodDetail extends AppCompatActivity {
 
         database= FirebaseDatabase.getInstance();
         food=database.getReference("Food");
+        cart= database.getReference("Cart");
 
         food_increase_number= (TextView) findViewById(R.id.food_increase_number);
         minusBtn=(ImageView) findViewById(R.id.minusBtn);
@@ -70,6 +71,7 @@ public class FoodDetail extends AppCompatActivity {
         btnCart=(FloatingActionButton) findViewById(R.id.btnCart);
 
         btnCart.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 new Database(getBaseContext()).addToCart(new Order(
@@ -81,7 +83,7 @@ public class FoodDetail extends AppCompatActivity {
                 ));
                 Toast.makeText(FoodDetail.this,"Added to cast", Toast.LENGTH_SHORT).show();
                 finish();
-                finish();
+
             }
         });
 

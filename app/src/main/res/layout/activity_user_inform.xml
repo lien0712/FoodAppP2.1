@@ -8,62 +8,102 @@
     android:background="@color/sunset"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:srcCompat="@tools:sample/avatars"
-        android:layout_gravity="center"
-        android:layout_margin="50dp"
-        android:id="@+id/userImage"
-        />
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:id="@+id/userImage"
+            />
+        <TextView
+            android:id="@+id/userNameInf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:text="Name"
+
+            />
+        <TextView
+            android:id="@+id/userPhoneInf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/black"
+           android:text="Phone"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:id="@+id/userEmailInf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp"
+            android:text="Email"
+            />
+
+    </LinearLayout>
+
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardCornerRadius="30dp"
+
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_margin="8dp"
-        android:orientation="vertical">
+        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        >
 
-        <EditText
-            android:id="@+id/userPhoneInf"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:hint="Phone"
-            android:inputType="phone"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:text="Age: "
+                />
+            <EditText
+                android:id="@+id/userAgeInf"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:hint="Age"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="20sp"
 
-        <EditText
-            android:id="@+id/userNameInf"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:hint="FullName"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"
-            />
-        <EditText
-            android:id="@+id/userAgeInf"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            android:hint="Age"
-            android:inputType="number"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"
+                android:paddingLeft="20dp"
+                />
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Gender: "
             />
         <EditText
             android:id="@+id/userGenderInf"
@@ -76,24 +116,19 @@
             android:textColor="@color/black"
             android:textColorHint="@color/black"
             android:textSize="20sp"
-            android:background="@drawable/input_bg"
+
             android:paddingLeft="20dp"
             />
-
-        <EditText
-            android:id="@+id/userEmailInf"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_marginBottom="10dp"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Password: "
+            />
         <EditText
             android:id="@+id/userPasswordInf"
             android:layout_width="300dp"
@@ -106,25 +141,12 @@
             android:textColorHint="@color/black"
             android:layout_marginBottom="10dp"
             android:textSize="20sp"
-            android:background="@drawable/input_bg"
             android:paddingLeft="20dp"/>
-        <EditText
-            android:id="@+id/userPasswordConfirmInf"
-            android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:gravity="left"
-            android:hint="Confirm password"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:layout_marginBottom="10dp"
-            android:textSize="20sp"
-            android:background="@drawable/input_bg"
-            android:paddingLeft="20dp"/>
-
+    </LinearLayout>
 
     </LinearLayout>
+</androidx.cardview.widget.CardView>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -133,5 +155,7 @@
         android:background="@color/orange"
         android:padding="15dp"
         android:textColor="@color/white"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+
+        />
 </LinearLayout>

@@ -23,7 +23,7 @@ import java.util.Locale;
 class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView txt_cart_name, txt_price,numCart;
-    public ImageView img_cart_count;
+    public ImageView img_cart_image;
     private ItemClickListener itemClickListener;
 
 
@@ -35,7 +35,6 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
         super(itemView);
         txt_cart_name=(TextView) itemView.findViewById(R.id.cart_item_name);
         txt_price=(TextView) itemView.findViewById(R.id.cart_item_price);
-        img_cart_count=(ImageView) itemView.findViewById(R.id.cart_item_count);
         numCart=itemView.findViewById(R.id.num_cart);
     }
 
@@ -71,16 +70,13 @@ public class CartAdapter extends RecyclerView.Adapter<CartViewHolder> {
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         Locale locale= new Locale("en","US");
         NumberFormat nfm=NumberFormat.getCurrencyInstance(locale);
-        Order listA= listData.get(position);
-        String list=listData.get(position).getPrice();
         priceOfFood=Integer.parseInt(listData.get(position).getPrice());
         quantityOfFood=Integer.parseInt(listData.get(position).getQuantity());
         int price=priceOfFood*quantityOfFood;
         //int price=(Integer.parseInt(listData.get(position).getPrice()))*(Integer.parseInt(listData.get(position).getQuantity()));
         holder.txt_price.setText(nfm.format(price));
         holder.txt_cart_name.setText(listData.get(position).getProductName());
-        //holder.img_cart_count.setImageDrawable(listData.get());
-
+        holder.numCart.setText(listData.get(position).getQuantity());
     }
 
     @Override
