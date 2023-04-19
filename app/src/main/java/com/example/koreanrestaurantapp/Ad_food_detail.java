@@ -58,7 +58,7 @@ public class Ad_food_detail extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 currentFood = snapshot.getValue(Food.class);
                 Picasso.with(getBaseContext()).load(currentFood.getImage()).into(food_image);
-                collapsingToolbarLayout.setTitle(currentFood.getName());
+                //collapsingToolbarLayout.setTitle(currentFood.getName());
                 food_price.setText(currentFood.getPrice());
                 food_name.setText(currentFood.getName());
                 food_description.setText(currentFood.getDescription());

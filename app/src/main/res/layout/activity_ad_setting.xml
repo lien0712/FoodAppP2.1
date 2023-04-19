@@ -21,6 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="4"
+        android:paddingStart="10dp"
+        android:paddingTop="30dp"
         >
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,22 +33,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Admin Inform"
-                android:textSize="20sp"
                 android:id="@+id/adInform"
+                android:textStyle="bold"
+                android:paddingBottom="20dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="User Account"
                 android:id="@+id/adUserAccount"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingBottom="20dp"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Log out"
                 android:id="@+id/logoutAd"
-                android:textSize="20sp"
+                android:textStyle="bold"
+                android:paddingBottom="20dp"
                 />
 
         </LinearLayout>
@@ -54,116 +59,175 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:id="@+id/userAdImage"
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="30dp"
+
+                >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_margin="8dp"
-                android:orientation="vertical">
+                android:layout_margin="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Phone: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserPhoneInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Phone"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Full Name: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserNameInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Full name"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
 
-                <EditText
-                    android:id="@+id/aduserPhoneInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Age: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserAgeInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Age"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Gender: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserGenderInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Gender"
+                        android:inputType="text"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Email: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserEmailInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+                        android:text="Password: "
+                        />
+                    <EditText
+                        android:id="@+id/aduserPasswordInf"
+                        android:layout_width="300dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:gravity="left"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:paddingLeft="20dp"/>
+                </LinearLayout>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnAdupdateInf"
+                    android:text="Save"
+                    android:background="@color/orange"
+                    android:padding="15dp"
+                    android:textColor="@color/white"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Phone"
-                    android:inputType="phone"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"/>
 
-                <EditText
-                    android:id="@+id/aduserNameInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:hint="FullName"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"
                     />
-                <EditText
-                    android:id="@+id/aduserAgeInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Age"
-                    android:inputType="number"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"
-                    />
-                <EditText
-                    android:id="@+id/aduserGenderInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Gender"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"
-                    />
-
-                <EditText
-                    android:id="@+id/aduserEmailInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"/>
-                <EditText
-                    android:id="@+id/aduserPasswordInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"/>
-                <EditText
-                    android:id="@+id/aduserPasswordConfirmInf"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:gravity="left"
-                    android:hint="Confirm password"
-                    android:inputType="textPassword"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="20sp"
-                    android:background="@drawable/input_bg"
-                    android:paddingLeft="20dp"/>
-
 
             </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
         </LinearLayout>
 
     </LinearLayout>
