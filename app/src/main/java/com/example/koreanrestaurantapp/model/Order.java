@@ -1,12 +1,32 @@
 package com.example.koreanrestaurantapp.model;
 
 public class Order {
-
+private int ID;
     private String ProductId;
     private String ProductName;
+
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public Order(int ID, String productId, String productName, String quantity, String price, String discount) {
+        this.ID = ID;
+        ProductId = productId;
+        ProductName = productName;
+        Quantity = quantity;
+        Price = price;
+        Discount = discount;
+    }
+
     private String Quantity;
     private String Price;
     private String Discount;
+    private String Image;
     public Order() {
     }
     public String getImage() {
@@ -17,7 +37,14 @@ public class Order {
         Image = image;
     }
 
-    private String Image;
+    public Order(String productId, String productName, String quantity, String price, String discount, String image) {
+        ProductId = productId;
+        ProductName = productName;
+        Quantity = quantity;
+        Price = price;
+        Discount = discount;
+
+    }
 
     public Order(String productId, String productName, String quantity, String price, String discount) {
         ProductId = productId;

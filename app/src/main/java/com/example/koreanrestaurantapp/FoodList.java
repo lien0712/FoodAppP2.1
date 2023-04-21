@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.koreanrestaurantapp.Database.Database;
 import com.example.koreanrestaurantapp.Interface.ItemClickListener;
 import com.example.koreanrestaurantapp.ViewHolder.FoodViewHolder;
 import com.example.koreanrestaurantapp.model.Food;
@@ -27,7 +28,7 @@ public class FoodList extends AppCompatActivity {
     DatabaseReference foodList;
     String categoryId="";
     FirebaseRecyclerAdapter<Food, FoodViewHolder> adapter;
-
+    Database localDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +36,8 @@ public class FoodList extends AppCompatActivity {
 
         database= FirebaseDatabase.getInstance();
         foodList= database.getReference("Food");
+
+        localDB= new Database(this);
 
         recyclerView=(RecyclerView) findViewById(R.id.recycler_foods);
         recyclerView.setHasFixedSize(true);
@@ -63,6 +66,26 @@ public class FoodList extends AppCompatActivity {
                 foodViewHolder.food_name.setText(food.getName());
                 foodViewHolder.food_price.setText(String.format("%s vnd",food.getPrice()));
                 Picasso.with(getBaseContext()).load(food.getImage()).into(foodViewHolder.food_image);
+                //favorite
+                if(localDB.isFavorite(adapter.getRef(i).getKey())){
+                    foodViewHolder.ic_fav.setImageResource(R.drawable.ic_favorite_24);
+                }
+                //chang state
+                foodViewHolder.ic_fav.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if(!localDB.isFavorite(adapter.getRef(i).getKey())){
+                            localDB.addToFavorite(adapter.getRef(i).getKey());
+                            foodViewHolder.ic_fav.setImageResource(R.drawable.ic_favorite_24);
+                            Toast.makeText(FoodList.this, ""+food.getName()+" was added to favorite", Toast.LENGTH_SHORT).show();
+                        }else {
+                            localDB.removeToFavorite(adapter.getRef(i).getKey());
+                            foodViewHolder.ic_fav.setImageResource(R.drawable.ic_favorite_border_24);
+                            Toast.makeText(FoodList.this, ""+food.getName()+" was removed from favorite", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
                 final Food local = food;
                 foodViewHolder.setItemOnClickListener (new ItemClickListener() {
                     @Override

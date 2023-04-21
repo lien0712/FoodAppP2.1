@@ -13,8 +13,10 @@
         android:id="@+id/list_food_table"
         />
     <RelativeLayout
-        android:layout_width="409dp"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -22,7 +24,8 @@
             android:layout_margin="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:layout_above="@id/btnLayout">
+            android:layout_above="@id/btnLayout"
+            >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +38,7 @@
                 android:id="@+id/txtTotalTable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$1000"
+                android:text="1000"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -44,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/btnLayout"
+        android:gravity="center"
         >
         <Button
             android:id="@+id/btnSelectFood"

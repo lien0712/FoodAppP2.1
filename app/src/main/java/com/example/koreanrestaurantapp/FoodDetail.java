@@ -79,7 +79,8 @@ public class FoodDetail extends AppCompatActivity {
                         currentFood.getName(),
                         String.valueOf(quantity),
                         currentFood.getPrice(),
-                        currentFood.getDiscount()
+                        currentFood.getDiscount(),
+                        currentFood.getImage()
                 ));
                 Toast.makeText(FoodDetail.this,"Added to cast", Toast.LENGTH_SHORT).show();
                 finish();
